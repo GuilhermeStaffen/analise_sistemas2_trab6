@@ -18,6 +18,7 @@ public class PerfilFacade {
         PerfilEntity perfil = new PerfilEntity(codigo, nome, descricao);
 
         this.perfis.add(perfil);
+        this._perfilRepository.persistirPerfil(perfil);
         return perfil;
     }
 
@@ -43,7 +44,7 @@ public class PerfilFacade {
         if (perfilDesejado != null) {
             return perfilDesejado;
         } else {
-            throw new Exception("Perfil com nome "+nome+" não encontrado.");
+            throw new Exception("Perfil com nome " + nome + " não encontrado.");
         }
     }
 

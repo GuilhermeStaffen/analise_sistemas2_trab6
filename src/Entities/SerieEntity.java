@@ -1,7 +1,7 @@
 package Entities;
 
 
-
+//Entidade de serie
 public class SerieEntity {
     private String nome;
     private int ano;

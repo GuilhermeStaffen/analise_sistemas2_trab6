@@ -17,6 +17,7 @@ public class SerieFacade {
     public SerieEntity criarSerie(int ano, String nome) throws Exception {
         SerieEntity serie = new SerieEntity(ano, nome);
         this.series.add(serie);
+        this._serieRepository.persistirSerie(serie);
         return serie;
     }
 

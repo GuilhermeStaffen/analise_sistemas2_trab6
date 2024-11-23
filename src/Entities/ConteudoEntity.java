@@ -1,39 +1,30 @@
 package Entities;
 
+import Entities.Interfaces.IArquivo;
 import java.util.ArrayList;
 import java.util.List;
 
 //Entidade de usuario
-public class UsuarioEntity {
+public class ConteudoEntity {
     private String nome;
-    private String email;
-    private String senha;
-    private String matricula;
     private Boolean ativo;
+    private IArquivo arquivo;
     private List<PerfilEntity> perfis;
     private List<SerieEntity> series;
+    private List<DisciplinaEntity> disciplinas;
 
-    public UsuarioEntity(String nome, String email, String senha, String matricula, Boolean ativo) {
+
+    public ConteudoEntity(String nome, Boolean ativo) {
         this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.matricula = matricula;
         this.ativo = ativo;
         this.perfis = new ArrayList<>();
         this.series = new ArrayList<>();
+        this.disciplinas = new ArrayList<>();
     };
 
     
     public String getNome(){
         return this.nome; 
-    }
-
-    public String getEmail(){
-        return this.email; 
-    }
-
-    public String getMatricula(){
-        return this.matricula; 
     }
 
     public Boolean getStatus(){
@@ -48,12 +39,28 @@ public class UsuarioEntity {
         return series;
     }
 
+    public List<DisciplinaEntity> getDisciplinas(){
+        return disciplinas;
+    }
+
+    public void atribuirArquivo(IArquivo arquivo){
+        this.arquivo = arquivo;
+    }
+
+    public IArquivo getArquivo(){
+        return this.arquivo;
+    }
+
     public void definirPerfil(PerfilEntity perfil){
         perfis.add(perfil);
     }
 
     public void definirSerie(SerieEntity serie){
         series.add(serie);
+    }
+
+    public void definirDisciplina(DisciplinaEntity disciplina){
+        disciplinas.add(disciplina);
     }
 
 }

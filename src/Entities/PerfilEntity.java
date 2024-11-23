@@ -1,7 +1,7 @@
 package Entities;
 
 
-
+//Entidade de perfil
 public class PerfilEntity {
     private int codigo;
     private String nome;
