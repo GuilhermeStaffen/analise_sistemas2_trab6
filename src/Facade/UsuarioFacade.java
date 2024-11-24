@@ -60,7 +60,7 @@ public class UsuarioFacade {
         if (perfilAtribuidos.contains(perfil)) {
             System.out.println("Perfil " + perfil.getNome() + " já foi adicionado ao usuario " + usuario.getNome());
         } else {
-            perfilAtribuidos.add(perfil);
+            usuario.definirPerfil(perfil);
             _usuarioRepository.persistirPerfilUsuario(usuario);
         }
     }
@@ -70,28 +70,24 @@ public class UsuarioFacade {
         if (serieAtribuidos.contains(serie)) {
             System.out.println("Serie " + serie.getNome() + " já foi adicionado ao usuario " + usuario.getNome());
         } else {
-            serieAtribuidos.add(serie);
+            usuario.definirSerie(serie);
             _usuarioRepository.persistirSerieUsuario(usuario);
         }
     }
 
-    public Boolean dadosValidos(String nome, String email, String senha, String matricula, Boolean ativo) {
+    private Boolean dadosValidos(String nome, String email, String senha, String matricula, Boolean ativo) {
         String EMAIL_REGEX = "^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}$";
 
         if (nome == null || nome.length() < 5) {
-             System.out.println("nome ");
             return false;
         }
         if (!Pattern.matches(EMAIL_REGEX, email)) {
-            System.out.println("em ");
             return false;
         }
         if (senha == null || senha.length() < 8) {
-            System.out.println("sen ");
             return false;
         }
         if (matricula == null || matricula.length() < 3) {
-            System.out.println("mat ");
             return false;
         }
         return true;

@@ -32,7 +32,7 @@ public class ConteudoFacade {
         if (perfilAtribuidos.contains(perfil)) {
             System.out.println("Perfil " + perfil.getNome() + " já foi adicionado ao conteudo " + conteudo.getNome());
         } else {
-            perfilAtribuidos.add(perfil);
+            conteudo.definirPerfil(perfil);
             _conteudoRepository.persistirPerfilConteudo(conteudo);
         }
     }
@@ -42,7 +42,7 @@ public class ConteudoFacade {
         if (serieAtribuidos.contains(serie)) {
             System.out.println("Serie " + serie.getNome() + " já foi adicionado ao conteudo " + conteudo.getNome());
         } else {
-            serieAtribuidos.add(serie);
+            conteudo.definirSerie(serie);
             _conteudoRepository.persistirSerieConteudo(conteudo);
         }
     }
@@ -53,7 +53,7 @@ public class ConteudoFacade {
             System.out.println(
                     "Discplina " + disciplina.getNome() + " já foi adicionado ao conteudo " + conteudo.getNome());
         } else {
-            disciplinaAtribuidos.add(disciplina);
+            conteudo.definirDisciplina(disciplina);
             _conteudoRepository.persistirSerieConteudo(conteudo);
         }
     }

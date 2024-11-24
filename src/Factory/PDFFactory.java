@@ -9,6 +9,6 @@ public class PDFFactory implements IMidiaFactory {
 
         // TODA IMPLEMENTAÇÃO SUBINDO ARQUIVO EM UM SERVIDOR (EX: ONE DRIVE, GOOGLE DRIVE, ETC.)
         
-        return new PDFEntity(nome, Integer.parseInt(quantidadePaginas), "https://exemploPDF.com/"+nome);
+        return new PDFEntity(nome, Integer.parseInt(quantidadePaginas), "https://PDF.com/"+nome);
     }
 }
